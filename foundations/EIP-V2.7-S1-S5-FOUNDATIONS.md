@@ -89,6 +89,22 @@ Tier determines: **thresholds · timeouts · sizing · data quality requirements
 | HIGH | 0x | Severe conditions | No new FIRE signals |
 | CRISIS | Exit-only | Extreme conditions | Close active signals only |
 
+
+### §5.3 Whale Flow Context (Arkham Intelligence)
+
+**Source:** Arkham Intelligence free alerts via Telegram webhook.
+**Tracked entities:** Wintermute, Jump, Cumberland, Galaxy, Abraxas + top 5 whale wallets per tier.
+**Role:** Confidence multiplier (NOT a gate). Same consultant rule as OrderFlow (§6 Dim 5).
+
+| State | Trigger | Effect |
+|-------|---------|--------|
+| `WHALE_NEUTRAL` | No significant whale activity | No modifier |
+| `WHALE_ACCUMULATION` | Large inflows from known MMs to cold wallets / off-exchange | Confidence +5 for LONG scenarios |
+| `WHALE_DISTRIBUTION` | Large outflows from whales to exchanges (sell staging) | Confidence -5 for LONG, +5 for SHORT |
+| `WHALE_ALERT` | Single transfer > $50M to exchange | Escalate System Risk by one level for 30 min |
+
+> ⚠️ **Implementation:** Arkham webhook → parse entity + amount + direction → update WhaleFlowState. Max 5–10 tracked entities to avoid noise. WHALE_ALERT escalation is temporary (30 min TTL) and bumps risk by one level only (never skips to CRISIS).
+
 ---
 
 *Last updated: 2026-04-12 | Next section: §6 onwards (Scenario Library, Trigger Definitions, FIRE Output Spec, Exit Management)*
