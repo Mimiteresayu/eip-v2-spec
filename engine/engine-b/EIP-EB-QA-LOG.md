@@ -60,3 +60,103 @@
 
 **Last Updated:** 2025-01  
 **Next Update:** After calibration backtest results from Chat 11  
+
+---
+
+## Calibration Research Update (2026-04-15)
+
+### Bitunix New Listings Feed (20 tokens captured)
+
+| # | Token | Listed | Category | 24h Vol | OI | 24h Chg | Trend |
+|---|-------|--------|----------|---------|-----|---------|-------|
+| 1 | UP | 2026/04/10 | Crypto | -- | -- | -- | Flat (too new) |
+| 2 | PRL | 2026/04/02 | Crypto | -- | -- | -- | Flat (too new) |
+| 3 | NATGAS | 2026/04/01 | Commodity | -- | -- | -- | EXCLUDED (non-crypto) |
+| 4 | BZ | 2026/04/01 | Commodity | -- | -- | -- | EXCLUDED (non-crypto) |
+| 5 | BASED | 2026/03/30 | Crypto | $4.04M | -- | +4.37% | Green up |
+| 6 | BSB | 2026/03/26 | Crypto | $620.87K | -- | +5.87% | Green up |
+| 7 | CL | 2026/03/24 | Commodity | $44.41M | -- | -5.04% | EXCLUDED (non-crypto) |
+| 8 | CFG | 2026/03/17 | Crypto | $611.88K | -- | +3.41% | Green up |
+| 9 | COPPER | 2026/03/06 | Commodity | $281.58K | -- | +1.21% | EXCLUDED (non-crypto) |
+| 10 | MANTRA | 2026/03/04 | Crypto | $17.89M | $7.35M | -0.38% | Range/Fade |
+| 11 | KATU | 2026/03/03 | Crypto | $238.43K | -- | -0.99% | Red fade |
+| 12 | ROBO | 2026/02/27 | Crypto | $37.44M | $14.92M | -7.39% | Red down |
+| 13 | OPN | 2026/02/24 | Crypto | $409.61K | -- | +4.36% | Green up |
+| 14 | MEGA | 2026/02/13 | Crypto | $66.20K | -- | +0.60% | Green up |
+| 15 | AZTEC | 2026/02/12 | Crypto | $12.37M | $10.47M | +5.40% | Green up |
+| 16 | ESP | 2026/02/12 | Crypto | $427.28K | -- | -0.67% | Red fade |
+| 17 | XAU | 2026/02/10 | Commodity | $84.37M | -- | +1.68% | EXCLUDED (non-crypto) |
+| 18 | TRIA | 2026/02/09 | Crypto | $427.08K | -- | +1.46% | Green up |
+| 19 | ZAMA | 2026/02/04 | Crypto | $441.56M | $35.37M | +34.96% | Strong green |
+| 20 | XPD | 2026/02/03 | Commodity | $465.83K | -- | +1.20% | EXCLUDED (non-crypto) |
+
+**Key Finding:** Bitunix now lists commodity pairs (NATGAS, BZ, CL, COPPER, XAU, XPD). Engine B v1 excludes non-crypto.
+**Crypto tokens for analysis:** 14 out of 20 (6 commodity excluded)
+
+### Deep Analysis (Coinglass + TradingView)
+
+#### ZAMA (Zama) — Listed 2026/02/04
+- **Coinglass:** $0.034, Futures Vol $441.56M, OI $35.37M, MCap $73.95M
+- **Performance:** 24h +34.69%, 7d +56.47%, 30d +51.57%, All -45.06%
+- **TradingView Chart:** D1 extreme spike to $0.23 (from ~$0.06 base), immediate crash to $0.06, then steady fade to $0.02 over 40 days, recent recovery to $0.034
+- **Archetype:** A1 Spike & Fade (D0-D7 view)
+- **Magnitude:** Explosive (>200% D1 intra-day spike)
+- **Calibration Note:** D1 wick was 280%+ from close, confirming Explosive classification. Late-stage recovery (D40+) does not change D0-D7 archetype.
+
+#### ROBO (Fabric Protocol) — Listed 2026/02/27
+- **Coinglass:** $0.0194, Futures Vol $37.44M, OI $14.92M, MCap $43.22M
+- **Performance:** 24h -7.71%, 7d +19.57%, 30d -51.86%, All -47.77%
+- **TradingView Chart:** D1 spike to $0.065, D2-5 fade to $0.04, D5-10 crash to $0.015, brief dead-cat bounce to $0.04, then resumed fade
+- **Archetype:** A1 Spike & Fade
+- **Magnitude:** Explosive (listing spike 0.065 to current 0.019 = -70% from peak)
+- **Calibration Note:** Dead-cat bounce on D10-15 is a trap. The D0-D7 pattern is unambiguously A1.
+
+#### MANTRA — Listed 2026/03/04
+- **Coinglass:** $0.01053, Futures Vol $17.89M, OI $7.35M, MCap $51.45M
+- **Performance:** 24h -0.38%, 7d +0.35%, 30d -31.57%, All -32.54%
+- **TradingView Chart:** Listed ~$0.011, brief spike, then steady fade to $0.0105 range
+- **Archetype:** A1 Spike & Fade / A4 Range-Bound (borderline)
+- **Magnitude:** Micro (<50% total move)
+- **Calibration Note:** Low-magnitude A1 faders can look like A4 after D7. Need a magnitude threshold to distinguish: if All-time move <30%, classify as A4 not A1.
+
+#### AZTEC (Aztec) — Listed 2026/02/12
+- **Coinglass:** $0.02207, Futures Vol $12.37M, OI $10.47M, MCap $63.32M
+- **Performance:** 24h +5.35%, 7d +18.82%, 30d -5.67%, All +14.12%
+- **TradingView Chart:** D1 spike to $0.04, crash to $0.018 (D1-5), consolidated $0.018-0.024 (D5-15), then slow recovery with breakout
+- **Archetype:** A1 > A3 Hybrid (Spike then V-Shape Recovery)
+- **Magnitude:** Standard (50-200% initial move)
+- **Calibration Note:** CRITICAL FINDING — Some tokens exhibit MULTI-PHASE archetypes. D0-D3 = A1, but D3-D7+ transitions to A3. Need to define: primary archetype (D0-D3) vs secondary archetype (D3-D7).
+
+### Calibration Insights
+
+| # | Insight | Impact on Spec | Status |
+|---|---------|---------------|--------|
+| C1 | Commodity pairs now on Bitunix — L1 gate needs exchange-type filter | Add instrument_type filter to L1 | NEW |
+| C2 | A1 Spike & Fade dominates new listings (3 of 4 deep-analyzed = A1) | A1 should be default prior in L5 | NEW |
+| C3 | Multi-phase archetypes exist (A1 > A3 transition) | Need primary + secondary archetype fields in L5 | NEW |
+| C4 | Low-magnitude A1 looks like A4 after D7 | Set magnitude threshold: <30% all-time = reclassify as A4 | NEW |
+| C5 | Dead-cat bounces are traps in A1 faders | L9 exit rules need anti-bounce filter | NEW |
+| C6 | D1 wick-to-close ratio is key magnitude signal | Add wick_ratio field to L6 classifier | NEW |
+| C7 | OI/volume ratio correlates with archetype persistence | High OI tokens sustain pattern longer | NEW |
+
+### Updated Open Questions
+
+| # | Question | Owner Chat | Status |
+|---|----------|-----------|--------|
+| Q8 | Should L1 gate filter by instrument type (crypto vs commodity)? | Chat 11 | PROPOSED — YES |
+| Q9 | How to handle multi-phase archetype transitions (A1>A3)? | Chat 11 | OPEN |
+| Q10 | What magnitude threshold separates A1-fade from A4-range? | Chat 11 | PROPOSED — 30% all-time move |
+| Q11 | Should L5 output primary + secondary archetype? | Chat 2 | OPEN |
+| Q12 | Dead-cat bounce detection for L9 anti-trap rules? | Chat 11 | OPEN |
+
+### Updated Change Request Log
+
+| CR # | Description | Status |
+|------|-------------|--------|
+| CR-0014 | Update README with full spec index | APPROVED |
+| CR-0015 | Update Q&A log with calibration research (Apr 2026) | PENDING OWNER APPROVAL |
+
+---
+
+**Last Updated:** 2026-04-15  
+**Next Update:** After Owner reviews calibration insights C1-C7 and Q8-Q12  
